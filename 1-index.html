@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Diário - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Meu Diário</h1>
+
+    <!-- Login -->
+    <section>
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Usuário">
+      <input type="password" id="login-password" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+    </section>
+
+    <hr>
+
+    <!-- Cadastro -->
+    <section>
+      <h2>Criar Conta</h2>
+      <input type="text" id="cadastro-username" placeholder="Novo usuário">
+      <input type="password" id="cadastro-password" placeholder="Senha">
+      <button onclick="criarConta()">Cadastrar</button>
+    </section>
+  </main>
+
+  <!-- Firebase + JS -->
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

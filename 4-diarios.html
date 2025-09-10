@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Diários - Meu Diário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="2-home.html">Página Inicial</a>
+    <a href="3-amigos.html">Amigos</a>
+    <a href="4-diarios.html">Meus Diários</a>
+    <a href="5-perfil.html">Perfil</a>
+    <a href="1-index.html" onclick="logout()">Sair</a>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main>
+    <h1>Meus Diários</h1>
+
+    <h2>Novo Diário</h2>
+    <input type="text" id="titulo" placeholder="Título">
+    <textarea id="texto" placeholder="Escreva seu diário..."></textarea>
+    <input type="text" id="foto-diario" placeholder="URL da foto (opcional)">
+
+    <label for="visibilidade" align = "center"></label>
+    <select id="visibilidade">
+      <option value="amigos">Amigas</option>
+      <option value="bests">Bests</option>
+      <option value="privado">Somente eu</option>
+    </select>
+
+    <button onclick="salvarDiario()">Salvar Diário</button>
+
+    <h2>Todos os Meus Diários</h2>
+    <div id="lista-diarios"></div>
+  </main>
+
+  <!-- Firebase + JS -->
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="script.js"></script>
+
+  <script>
+    window.onload = () => {
+      carregarDiarios();
+    };
+  </script>
+</body>
+</html>

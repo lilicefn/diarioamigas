@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial - Meu Diário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="2-home.html">Página Inicial</a>
+    <a href="3-amigos.html">Amigos</a>
+    <a href="4-diarios.html">Meus Diários</a>
+    <a href="5-perfil.html">Perfil</a>
+    <a href="1-index.html" onclick="logout()">Sair</a>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main>
+    <h1>Bem-vindo ao seu Diário!</h1>
+    <h2 id="boas-vindas"></h2>
+    <p>Veja abaixo as últimas postagens suas e de suas amigas:</p>
+
+    <div id="feed-diarios"></div>
+  </main>
+
+  <!-- Firebase + JS -->
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="script.js"></script>
+
+  <script>
+    window.onload = () => {
+      const usuario = sessionStorage.getItem("usuarioLogado");
+      if (!usuario) {
+        window.location.href = "1-index.html";
+        return;
+      }
+      document.getElementById("boas-vindas").textContent = "Olá, " + usuario + "!";
+      carregarDiarios(); // feed
+    };
+  </script>
+</body>
+</html>

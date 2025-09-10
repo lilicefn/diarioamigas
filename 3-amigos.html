@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigos - Meu Diário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="2-home.html">Página Inicial</a>
+    <a href="3-amigos.html">Amigos</a>
+    <a href="4-diarios.html">Meus Diários</a>
+    <a href="5-perfil.html">Perfil</a>
+    <a href="1-index.html" onclick="logout()">Sair</a>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main>
+    <h1>Amigos</h1>
+    <input type="text" id="novo-amigo" placeholder="Username da amiga">
+    <button onclick="adicionarAmigo()">Adicionar Amiga</button>
+    <ul id="lista-amigos"></ul>
+
+    <h1>Bests</h1>
+    <input type="text" id="novo-best" placeholder="Username da best">
+    <button onclick="adicionarBest()">Adicionar Best</button>
+    <ul id="lista-bests"></ul>
+  </main>
+
+  <!-- Firebase + JS -->
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="script.js"></script>
+
+  <script>
+    window.onload = () => {
+      carregarAmigos();
+      carregarBests();
+    };
+  </script>
+</body>
+</html>
