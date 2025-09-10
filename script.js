@@ -60,7 +60,7 @@ async function login() {
   }
 
   sessionStorage.setItem("usuarioLogado", username);
-  window.location.href = "2-home.html";
+  window.location.href = "home.html";
 }
 
 function logout() {
@@ -71,8 +71,8 @@ function logout() {
 function protegerPaginas() {
   const usuario = sessionStorage.getItem("usuarioLogado");
   const pagina = window.location.pathname.split("/").pop();
-  if (!usuario && pagina !== "1-index.html") {
-    window.location.href = "1-index.html";
+  if (!usuario && pagina !== "index.html") {
+    window.location.href = "index.html";
   }
 }
 
@@ -130,7 +130,7 @@ async function salvarDiario() {
 
   await push(diariosRef, novoDiario);
   alert("Diário salvo!");
-  window.location.href = "4-diarios.html";
+  window.location.href = "diarios.html";
 }
 
 async function carregarDiarios() {
@@ -288,7 +288,7 @@ async function carregarAmigos() {
 
     const li = document.createElement("li");
     const nomeAmigo = dadosAmigo.nome ? `${dadosAmigo.nome} (${amigo})` : amigo;
-    li.innerHTML = `<a href="6-ver-perfil.html?user=${amigo}">${nomeAmigo}</a>`;
+    li.innerHTML = `<a href="ver-perfil.html?user=${amigo}">${nomeAmigo}</a>`;
     container.appendChild(li);
   }
 }
@@ -333,7 +333,7 @@ async function carregarBests() {
 
     const li = document.createElement("li");
     const nomeBest = dadosBest.nome ? `${dadosBest.nome} (${best})` : best;
-    li.innerHTML = `<a href="6-ver-perfil.html?user=${best}">${nomeBest}</a>`;
+    li.innerHTML = `<a href="ver-perfil.html?user=${best}">${nomeBest}</a>`;
     container.appendChild(li);
   }
 }
@@ -373,3 +373,4 @@ Object.assign(window, {
 
 window.addEventListener("load", protegerPaginas);
 window.addEventListener("load", () => aplicarCorTema());
+
